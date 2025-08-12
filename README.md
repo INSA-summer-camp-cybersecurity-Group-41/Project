@@ -1,96 +1,82 @@
-# Lightweight SIEM
-**A Cybersecurity Project Proposal for the Information Network Security Administration (INSA)**
+# Cybersecurity Awareness & Incident Reporting Assistant
 
-- **Group:** 41
-- **Focus Area:** Security Information and Event Management (SIEM)
+Cybersecurity Awareness &  
+Incident Reporting Assistant
+
+A multilingual AI-powered mobile assistant that helps people  
+understand social engineering threats and report incidents  
+directly to cybersecurity authorities.
+
+**Built with:** React Native
 
 ---
 
-## 1. Executive Summary
+## Overview
+This app is designed to educate, protect, and connect.
 
-In the face of ever-growing digital infrastructure, national security agencies are inundated with vast streams of log data from a multitude of systems. The critical challenge lies in distinguishing genuine threats from benign background noise. This project details the development of a **Lightweight Security Information and Event Management (SIEM) system**. This system is designed to provide a powerful, focused solution for log aggregation, normalization, and automated threat detection. The core value of this SIEM lies in its ability to create a centralized analytical platform, dramatically enhancing threat visibility and accelerating incident response capabilities.
+It helps everyday users identify scams, phishing attempts, or other social  
+engineering attacks and makes it easy to report them to the right place.
 
-## 2. Project Objectives
+It has an AI knowledge base that can be updated as new threats emerge — **knowledge base update (RAG)** — ensuring users always get the most current advice.
 
-This project will deliver a functional SIEM with the following core capabilities:
+It also generates insight reports about common questions and incident trends,  
+helping authorities improve awareness campaigns.
 
-1. **Centralized Log Collection:** To implement a robust ingestion pipeline capable of receiving and processing log data from diverse, real-time sources across a network.  
-2. **Data Normalization:** To develop a parsing engine that transforms raw, inconsistent log entries into a standardized, structured format, making the data uniformly analyzable.  
-3. **Threat Detection Engine:** To build a flexible, rule-based correlation engine that analyzes the normalized event stream to identify complex patterns indicative of security threats.  
-4. **Actionable Alerting:** To generate clear, concise, and context-rich alerts upon the detection of a threat, providing security analysts with the immediate information needed to act.  
-5. **Comprehensive Documentation:** To produce clear documentation detailing the system's architecture, operational procedures, and setup, ensuring its usability and extensibility.
+It includes the **ability to report to INSA**.
 
-## 3. Features
+---
 
-- **Lightweight Footprint:** Minimal dependencies and low resource consumption—ideal for deployment on constrained hardware.  
-- **Real-Time Processing:** Near-instant log ingestion and correlation, ensuring timely alerting.  
-- **Rule-Based Flexibility:** Human-readable configuration files allow rapid tuning or addition of new detection rules without code changes.  
-- **Structured Output:** All normalized events and alerts emitted in JSON, simplifying downstream integration.  
-- **Extensible Modular Design:** Each component (ingest, parse, correlate, alert) can be swapped or extended independently.
+## Why Itʼs Useful
 
-## 4. Proposed Technical Approach
+### For the Public
+- Instant answers to cybersecurity questions in a natural, friendly conversation.  
+- Clear explanations of threats without complex jargon.  
+- Easy reporting of suspicious calls, emails, messages, or websites.  
+- Guided instructions on how to report incidents to official bodies like INSA.  
+- Multilingual support — works in Amharic, English, Afaan Oromo, and more.
 
-The system will be developed using a modern, efficient, and flexible technical stack to ensure project feasibility and promote rapid development.
+### For Authorities & Organizations
+- Automated incident reports ready for investigation.  
+- Trends & analytics showing the most reported scams and most asked questions.  
+- Early warnings on new attack types emerging in the community.  
+- Better awareness programs based on real public questions and concerns.
 
-- **Core Language:** Python 3 will serve as the primary development language, selected for its powerful data processing libraries and extensive support for network protocols.  
-- **Log Ingestion:** The system will feature a configurable network listener, such as a syslog-compatible server, designed to be the primary interface for log-generating devices and applications.  
-- **Dynamic Rule Engine:** To ensure adaptability, correlation rules will be externalized into a human-readable configuration file. This allows threat intelligence to be updated without modifying the application's source code.  
-- **Standardized Data Handling:** The project will leverage universal data formats like JSON for all normalized logs and alerts, guaranteeing interoperability and simplifying integration with other tools.
+---
 
-## 5. Proposed High-Level Architecture
+## How It Works
+1. **Ask or Report**  
+   User asks about something suspicious or directly reports an incident.
 
-The system's design is founded on a modular architecture, which separates core functions into distinct, interoperable components for improved maintainability and scalability.
+2. **AI Guidance**  
+   The assistant explains whether it might be a scam and how to respond safely.
 
-1. **Ingestion Pipeline:** This module is the system's front door, responsible for listening for, receiving, and queuing raw log data from all monitored sources.  
-2. **Parsing & Normalization Engine:** This component acts as the universal translator, taking varied raw log formats from the pipeline and transforming them into the system's single, consistent event structure.  
-3. **Correlation & Analysis Core:** This is the brain of the SIEM. It continuously analyzes the stream of normalized events, applying the defined rule set to detect suspicious patterns, multi-stage attacks, and policy violations.  
-4. **Alerting & Reporting Framework:** When the correlation core identifies an incident, this module is triggered to format and dispatch detailed alerts to a predefined destination, such as a dedicated log file or the system console.
+3. **Incident Analysis**  
+   The AI identifies the type of attack and assigns a risk score.
 
-## 6. Technologies We’ll Use
+4. **Report Creation**  
+   A professional, well-structured incident report is generated automatically.
 
-- **Programming & Scripting:**  
-  - **Python 3.10+** (core SIEM logic, parsing, correlation)  
-  - **Bash** (deployment scripts, sysadmin tasks)  
+5. **Submit or Save**  
+   User can send the report to authorities or save it for manual submission.
 
-- **Data Transport & Ingestion:**  
-  - **rsyslog** or **syslog-ng** (configurable log forwarding)  
-  - **ZeroMQ** (optional high-throughput queuing)  
+6. **Knowledge Base Updates**  
+   Security experts can add new threats and advice without changing the app. *(knowledge base update (RAG))*  
 
-- **Data Storage & Processing:**  
-  - **SQLite** (lightweight local event store)  
-  - **Elasticsearch** (optional for full-text indexing & search)  
+7. **Data Insights**  
+   Anonymous usage data helps authorities track trends and plan awareness campaigns.
 
-- **Alerting & Visualization:**  
-  - **SMTP** (email notifications)  
-  - **Slack Webhooks** (team collaboration alerts)  
-  - **Grafana** (optional dashboarding for metrics)  
+---
 
-- **Configuration & Management:**  
-  - **YAML/JSON** (rule and pipeline configuration files)  
-  - **Git** (version control)  
-  - **Docker** (containerized deployments for reproducibility)  
+## Privacy & Safety
+- All communication is encrypted.  
+- Users control whether their data is stored.  
+- No personal details are shared without permission.  
+- Analytics are aggregated and anonymous.
 
-## 7. Development Methodology
+---
 
-The project will be developed using an iterative and modular approach, ensuring flexibility and consistent progress. This methodology prioritizes building a functional core and then expanding upon it with more advanced features.
-
-- **Modular Implementation:** Following the proposed architecture, each core component (Ingestion, Parsing, Correlation, Alerting) will be developed and unit-tested independently. This allows for a clear separation of concerns and facilitates parallel development efforts.  
-- **Iterative Refinement:** Development will proceed in cycles. An initial iteration will focus on establishing a basic, end-to-end data pipeline. Subsequent cycles will add layers of complexity, such as support for new log formats, more sophisticated correlation rules, and enhanced alerting mechanisms.  
-- **Continuous Integration:** As individual modules reach maturity, they will be continuously integrated and tested together. This ensures that the overall system remains stable and functional throughout the development lifecycle, preventing major integration challenges.
-
-## 8. What We Look Forward To
-
-- **Integration with Threat Feeds:** Incorporate real-time threat intelligence sources (e.g., MISP, AlienVault OTX).  
-- **Machine Learning Enhancements:** Experiment with anomaly detection models to complement rule-based correlation.  
-- **Scalability Testing:** Evaluate performance under high-volume log streams and refine the pipeline for distributed deployments.  
-- **User Interface Prototype:** Develop a lightweight web UI for alert management and historical log browsing.  
-- **Community Contributions:** Open-source release to encourage peer review, additional parsers, and custom rule sets from the security community.
-
-## 9. Key Deliverables
-
-Upon project completion, Group 41 will provide the following:
-
-1. The complete and fully commented **source code** for the Lightweight SIEM.  
-2. A configuration file containing a set of effective sample **detection rules**.  
-3. This **`README.md`** file, serving as the official project and architectural documentation.  
-4. A **final project summary and live presentation** demonstrating the system's features and capabilities.  
+## Example Insights from Analytics
+- Most asked topics — e.g., fake job offers, bank SMS scams.  
+- Emerging threats — e.g., new telegram, SMS, call scam circulating.  
+- Peak reporting times — helps schedule public alerts.  
+- Geographic patterns — where certain scams are more common.
